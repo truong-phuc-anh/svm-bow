@@ -1,0 +1,32 @@
+
+class BagOfWords:
+def __init__(self)
+    self.vocabulary = np.array([[]]) # 2D-array, a row = 1 word = 1 SIFT descriptor = 1 center = 128D vector
+    
+def create_vocabulary(self, images):
+    key_points = get_key_points(images)
+    descriptors = get_descriptors(images)
+    self.vocabulary = run_kmeans_on(descriptors) # get centers of cluster
+    
+def cal_histogram(self, image)
+    # create empty histogram
+    n_words = len(self.vocabulary)
+    histogram = np.zero(n_words)
+    
+    # calculate all descriptors in image
+    key_points = get_key_points(image)
+    descriptors = get_descriptors(key_points)
+    
+    # for each descriptor, find out which word is it.
+    for descriptor in descriptors:
+        word_index = self.which_word(descriptor)
+        histogram[word_index]++
+    
+    return histogram
+        
+def which_word(self, descriptor):
+    n_words = len(self.vocabulary)
+    dist = np.zero(n_words)
+    for i in range(n_words)
+        dist[i] = L1_distance(vocabulary[i], descriptor)
+    return min_index_of(dist)
